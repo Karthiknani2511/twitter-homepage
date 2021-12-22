@@ -1,0 +1,617 @@
+<html>
+    <head>
+        <title>Twitter</title>
+        <style>
+            .Layout{
+                display:grid;
+                grid-template-columns: 275px auto 350px;
+                margin:0 auto;
+                max-width: 1200px;
+            }
+            .right{
+                position: fixed;
+                width:350px;
+            }
+            .left-home{
+                font-size: 19px;
+               color: #0F141A;
+                display: flex;
+                 align-items: center;
+                 font-weight: 700;
+                 padding: 10px;
+            }
+            .home{
+                height: 26px;
+                margin-right: 20px;
+            }
+             .left-home--active{
+                color:#1da0f2;
+            }
+            .left-home--active .home{
+                filter: invert(67%) sepia(60%) saturate(4956%) hue-rotate(176deg) brightness(95%) contrast(99%);
+            }
+            .left-home:hover{
+                background: rgba(29,161,242,0.1);
+                color: #1da0f2;
+                 border-radius: 20px;
+                 cursor: pointer;
+            }
+            .tweet{
+                display: flex;
+                border-bottom: 1px solid #e6ecf0;
+                margin-bottom: 2px;
+               padding: 10px 15px;
+
+            }
+            .author{
+                width: 49px;
+                height: 49px;
+                border-radius: 50%;
+                margin-right: 10px;
+            }
+            .tweet-header{
+                display: flex;
+            }
+            .name{
+                font-size: 15px;
+                font-weight: 700;
+                color: #14171a;
+                margin-right: 5px;
+            }
+            .profile{
+                color: #5b7083;
+                font-size: 15px;
+            }
+            .time{
+                color: #5b7083;
+                margin-left: 5px;
+            }
+            .tweet:hover{
+                background: rgba(0, 0, 0, 0.03);
+                cursor: pointer;
+            }
+            .tweet a{
+                color: #1b94e0;
+                text-decoration: none;
+            }
+            .tweet a:hover{
+                text-decoration: underline;
+            }
+            .trends-for-you {
+                border-radius: 15px;
+                background: #f5f8fa;
+                margin-bottom: 15px;
+           }
+           .trends-for-you-block {
+               border-bottom: 1px solid #e6ecf0;
+               padding: 10px 15px;
+           }
+           .trends-for-you__block:last-child {
+               border-bottom: none;
+           }
+           .trends-for-you-heading {
+             font-size: 19px;
+             font-weight: bold;
+             color: #14171a;
+           }
+
+            .trends-for-you-info{
+              font-size: 13px;
+              font-weight: 300;
+              color: #657786;
+           }
+
+             .trends-for-you-name {
+              font-size: 15px;
+              color: #14171a;
+              font-weight: bold;
+              margin-bottom: 5px;
+              margin-top: 2px;
+           }
+           .trends-for-you-block:hover{
+                background: rgba(0, 0, 0, 0.03);
+                cursor: pointer;
+            }
+            .block:last-child {
+              border-bottom: none;
+           }
+            .who-to-follow {
+                background: #f5f8fa;
+                border-radius: 15px;
+           }
+           .who-to-follow__block {
+             padding: 10px 15px;
+             display: flex;
+             align-items: center;
+             border-bottom: 1px solid #e6ecf0;
+           }
+           .who-to-follow__block:last-child {
+              border-bottom: none;
+           }
+            .who-to-follow__author-logo {
+              width: 49px;
+              height: 49px;
+              border-radius: 50px;
+              margin-right: 10px;
+           }
+            .who-to-follow__author-slug {
+              color: #657786;
+              font-size: 15px;
+          }
+           .who-to-follow__author-name {
+              font-size: 15px;
+              font-weight: 700;
+           }
+
+            .who-to-follow__content {
+                 display: flex;
+                 justify-content: space-between;
+                 width: 100%;
+           }
+            .who-to-follow__heading {
+                 font-size: 19px;
+                 font-weight: bold;
+                 color: #14171a;
+           }
+          .who-to-follow__button {
+                  border: 1px solid #1da0f2;
+                  color: #1da0f2;
+                  font-size: 15px;
+                  font-weight: 700;
+                  border-radius: 15px;
+                  padding: 5px;
+                  min-width: 67px;
+                  text-align: center;
+           }
+           .who-to-follow__button:hover {
+                 background: rgba(29, 161, 242, 0.1);
+                 cursor: pointer;
+           }
+           .who-to-follow__block:hover{
+                background: rgba(0, 0, 0, 0.03);
+                cursor: pointer;
+            }
+            
+            .tweet-button{
+                background-color: #1b94e0;
+                border-radius: 9999px;
+                color: rgb(255,255,255);
+                cursor: pointer;
+                font-size: 20px;
+                text-align: center;
+                font-weight: 700;
+                padding-top: 5%;
+                padding-bottom: 5%;
+                margin-top: 15%;
+            }
+            .tweet-button:hover{
+                background-color: rgb(29,155,240);
+            }
+            .profile__block {
+             padding: 12px 25px;
+             display: flex;
+             align-items: center;
+             margin-top:60%;
+           }
+           .profile__author-logo {
+              width: 40px;
+              height: 40px;
+              border-radius: 50px;
+              margin-right: 10px;
+           }
+           .profile__author-name {
+              font-size: 15px;
+              font-weight: 700;
+           }
+           .profile__content {
+                 display: flex;
+                 justify-content: space-between;
+                 width: 100%;
+           }
+           .profile__author-slug {
+              color: #657786;
+              font-size: 15px;
+          }
+          .profile_logo{
+                height: 30px;
+                width: 20px;
+                justify-content:center;
+                margin-left:85% ;
+                margin-top: 32%;
+            }
+            .profile_2:hover{
+                background: rgba(0, 0, 0, 0.05);
+                border-radius: 40px;
+                cursor: pointer;
+           }
+           .profile_box{
+                display: flex;
+                flex-direction: row;
+           }
+           .profile_name{
+                    display: flex;
+                    flex-direction: column;
+           }
+           .search{
+                margin-bottom: 5%;
+                margin-top: 1%;
+                background:#f5f8fa;;
+                padding: 2% 2% 5% 5%;
+                border-radius: 10%;
+                font-size: 18px;
+                display: flex; 
+                flex-direction: row;  
+                color:#657786 ; 
+           }
+           .search_image{
+               height:18px;
+               width:18px;
+               margin-top: 2%;
+           }
+           .content{
+               margin-left: 5%;
+               margin-top: 2%;
+           }
+        </style>
+    </head>
+    <body>
+        <div class="Layout">
+        <div class="Layout-left">
+            <img src="file:///C:/Users/karth/Downloads/twitter%20icon.svg" style="height: 28px;padding: 10px;"/>
+            <div class="menu" style="position: fixed;">
+            <div class="left-home left-home--active">
+                <img class="home" src="C:\Users\karth\Desktop\icons/home.svg"/>Home
+            </div>
+            <div class="left-home">
+                <img src="C:\Users\karth\Desktop\icons/explore.svg" class="home"/>Explore
+            </div>
+            <div class="left-home">
+                <img src="C:\Users\karth\Desktop\icons/notifications.svg" class="home"/>Notifications
+            </div>
+            <div class="left-home">
+                <img src="C:\Users\karth\Desktop\icons/messages.svg" class="home"/>Messaages
+            </div>
+            <div class="left-home">
+                <img src="C:\Users\karth\Desktop\icons/bookmark.svg" class="home"/>Bookmarks
+            </div>
+            <div class="left-home">
+                <img src="C:\Users\karth\Desktop\icons/profile.svg" class="home"/>Profile
+            </div>
+            <div class="left-home">
+                <img src="C:\Users\karth\Desktop\icons/more.svg" class="home"/>More
+            </div>
+            
+            <div class="tweet-button">
+                Tweet
+            </div>
+            <div class="profile_2">
+            <div class="profile__block">
+                <div class="profile_box">
+                <img
+                  class="profile__author-logo"
+                  src="C:\Users\karth\Desktop\twitter/karthi.jpg"/>
+                <div class="profile__content">
+                      <div class="profile_name">
+                    <div class="profile__author-name">
+                      Karthik Nallakuntla
+                    </div>
+                    <div class="profile__author-slug">
+                      @KarthikNallakuntla
+                    </div>
+                    </div>
+                    <div class="profile_more">
+                        <img class="profile_logo" src="file:///C:/Users/karth/Desktop/icons/profile-more.svg"/>
+                    </div>
+                  </div>
+            </div>
+        </div>
+        </div>
+      </div>
+  </div>
+        <div class="Layout-main">
+        <div class="tweet">
+            <img class="author" src="C:\Users\karth\Desktop\twitter/bhaska.jpg"/>
+            <div class="tweet-top">
+                <div class="tweet-header">
+                <div class="name">
+                    Mahesh Kunta
+                </div>
+                <div class="profile">
+                    @MaheshKunta
+                </div>
+                <div class="time">
+                    1min
+                </div>
+            </div>
+                <div class="content">
+                    I support Congress!!
+                </div>
+        </div>
+    </div>
+    <div class="tweet">
+        <img class="author" src="C:\Users\karth\Desktop\twitter/2sai.jpg"/>
+        <div class="tweet-top">
+            <div class="tweet-header">
+            <div class="name">
+                Sai Malige
+            </div>
+            <div class="profile">
+                @SaiMalige
+            </div>
+            <div class="time">
+                2min
+            </div>
+        </div>
+            <div class="content">
+                I love to play cricket and my favorite cricketer is "Rohit Sharma"
+                Watch his batting here!
+               <a href="">https://www.youtube.com/watch?v=kz96aa36aWs</a>
+            </div>
+    </div>
+</div>
+<div class="tweet">
+    <img class="author" src="C:\Users\karth\Desktop\photos\dslr/karthi.jpg"/>
+    <div class="tweet-top">
+        <div class="tweet-header">
+        <div class="name">
+            Karthik Nallakuntla
+        </div>
+        <div class="profile">
+            @KarthikNallakuntla
+        </div>
+        <div class="time">
+            30min
+        </div>
+    </div>
+        <div class="content">
+            I am taking Full Stack Developer course in an organization called Newton Schools. If anyone Intrested go through this link <a href="">newtonschool.co</a>
+        </div>
+</div>
+</div>
+<div class="tweet">
+    <img class="author" src="C:\Users\karth\Desktop\twitter/sharan.jpg"/>
+    <div class="tweet-top">
+        <div class="tweet-header">
+        <div class="name">
+            Sharan Kumar Doddi
+        </div>
+        <div class="profile">
+            @SharanKumarDoddi
+        </div>
+        <div class="time">
+            35min
+        </div>
+    </div>
+        <div class="content">
+            I got placed in TCS!!. Looking forward to enjoy the new phase in mylife.
+        </div>
+</div>
+</div>
+<div class="tweet">
+    <img class="author" src="C:\Users\karth\Desktop\twitter/ajju.jpg"/>
+    <div class="tweet-top">
+        <div class="tweet-header">
+        <div class="name">
+            Ajay Jampala
+        </div>
+        <div class="profile">
+            @AjayJampala
+        </div>
+        <div class="time">
+            1hr
+        </div>
+    </div>
+        <div class="content">
+            Jai Hind!!
+        </div>
+</div>
+</div>
+<div class="tweet">
+    <img class="author" src="C:\Users\karth\Desktop\twitter/sharan.jpg"/>
+    <div class="tweet-top">
+        <div class="tweet-header">
+        <div class="name">
+            Sharan Kumar Doddi
+        </div>
+        <div class="profile">
+            @SharanKumarDoddi
+        </div>
+        <div class="time">
+            2hr
+        </div>
+    </div>
+        <div class="content">
+            Viazg Vibes<br />
+            <img src="C:\Users\karth\Desktop\twitter/app.jpg" style="width:80%; height: 80%; margin-top: 5%;"/>
+        </div>
+</div>
+</div>
+<div class="tweet">
+    <img class="author" src="C:\Users\karth\Desktop\twitter/karthi.jpg"/>
+    <div class="tweet-top">
+        <div class="tweet-header">
+        <div class="name">
+            Karthik Nallakuntla
+        </div>
+        <div class="profile">
+            @KarthikNallakuntla
+        </div>
+        <div class="time">
+            3hr
+        </div>
+    </div>
+        <div class="content">
+            Sister's Marrige !!
+            <br />
+            <img src="C:\Users\karth\Desktop\twitter/Marrige.jpg" style="width:80%; height: 80%; margin-top: 5%;"/>
+        </div>
+</div>
+</div>
+<div class="tweet">
+            <img class="author" src="C:\Users\karth\Desktop\twitter/ajju.jpg"/>
+    <div class="tweet-top">
+        <div class="tweet-header">
+        <div class="name">
+            Ajay Jampala
+        </div>
+        <div class="profile">
+            @AjayJampala
+        </div>
+        <div class="time">
+            3hr
+        </div>
+    </div>
+        <div class="content">
+            Success is not a destination...Success is a jouney....
+        </div>
+</div>
+</div>
+<div class="tweet">
+    <img class="author" src="C:\Users\karth\Desktop\twitter/bhaska.jpg"/>
+    <div class="tweet-top">
+        <div class="tweet-header">
+        <div class="name">
+            Mahesh Kunta
+        </div>
+        <div class="profile">
+            @MaheshKunta
+        </div>
+        <div class="time">
+            4hr
+        </div>
+    </div>
+        <div class="content">
+            Happy Birthday lucky....<br />
+            <img src="C:\Users\karth\Desktop\twitter/lucky.jpg" style="width: 80%;height: 80%;margin-top: 5%;"/>
+        </div>
+</div>
+</div>
+</div>
+        <div class="Layout-right">
+            <div class="right">
+                <div class="search">
+                    <img  class="search_image"src="C:\Users\karth\Desktop/icons/search.jpg"/>
+                    <div class="content">
+                        Search Twitter
+                    </div>
+                </div>
+            <div class="trends-for-you">
+                <div class="trends-for-you-block">
+                <div class="trends-for-you-heading">
+                    Trends For You
+                </div>
+            </div>
+             <div class="trends-for-you-block">
+            <div class="trends-for-you-info">
+                Trending in sports
+            </div>
+            <div class="trends-for-you-name">
+                #Virat Kohli Birthday
+            </div>
+            <div class="trends-for-you-info">
+                10k Tweets
+            </div>
+            </div>
+            <div class="trends-for-you-block">
+            <div class="trends-for-you-info">
+                Trending in movies
+            </div>
+            <div class="trends-for-you-name">
+                #RRRTrailer
+            </div>
+            <div class="trends-for-you-info">
+                50K Tweets
+            </div>
+            </div>
+            <div class="trends-for-you-block">
+            <div class="trends-for-you-info">
+                Trending in polity
+            </div>
+            <div class="trends-for-you-name">
+                #Varanasi
+            </div>
+            <div class="trends-for-you-info">
+                15k Tweets
+            </div>
+            </div>
+            <div class="trends-for-you-block">
+            <div class="trends-for-you-info">
+                Trending in World
+            </div>
+            <div class="trends-for-you-name">
+                #Omicron
+            </div>
+            <div class="trends-for-you-info">
+                100k Tweets
+            </div>
+            </div>
+        </div>
+        <div class="who-to-follow">
+            <div class="who-to-follow__block">
+              <div class="who-to-follow__heading">
+                Who to follow
+              </div>
+            </div>
+            <div class="who-to-follow__block">
+              <img
+                class="who-to-follow__author-logo"
+                src="C:\Users\karth\Desktop\twitter/virat.jpg"
+              />
+              <div class="who-to-follow__content">
+                <div>
+                  <div class="who-to-follow__author-name">
+                    Virat Kohli
+                  </div>
+                  <div class="who-to-follow__author-slug">
+                    @ViratKohli
+                  </div>
+                </div>
+                <div class="who-to-follow__button">
+                  Follow
+                </div>
+              </div>
+            </div>
+            <div class="who-to-follow__block">
+              <img
+                class="who-to-follow__author-logo"
+                src="C:\Users\karth\Desktop\twitter/naveen.jpg"
+              />
+              <div class="who-to-follow__content">
+                <div>
+                  <div class="who-to-follow__author-name">
+                    Naveen Sadam
+                  </div>
+                  <div class="who-to-follow__author-slug">
+                    @NaveenSadam
+                  </div>
+                </div>
+                <div class="who-to-follow__button">
+                  Follow
+                </div>
+              </div>
+            </div>
+            <div class="who-to-follow__block">
+              <img
+                class="who-to-follow__author-logo"
+                src="C:\Users\karth\Desktop\twitter/nikki.jpg"
+              />
+              <div class="who-to-follow__content">
+                <div>
+                  <div class="who-to-follow__author-name">
+                    Nikhitha Sattu
+                  </div>
+                  <div class="who-to-follow__author-slug">
+                    @NikhithaSattu
+                  </div>
+                </div>
+                <div class="who-to-follow__button">
+                  Follow
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
